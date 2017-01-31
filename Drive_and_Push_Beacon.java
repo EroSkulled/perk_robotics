@@ -35,7 +35,7 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
     ColorSensor color;
     OpticalDistanceSensor distance;
 
-    final private static int MOTOR_COUNT = 4;
+    final private static int MOTOR_COUNT = 2;
     final private static int mFL = 0;
     final private static int mFR = 1;
 
