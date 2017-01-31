@@ -33,7 +33,7 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
 
     DcMotor motor[];
     ColorSensor color;
-    OpticalDistanceSensor distance;
+//    OpticalDistanceSensor distance;
 
     final private static int MOTOR_COUNT = 2;
     final private static int mFL = 0;
@@ -152,7 +152,7 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
         color = hardwareMap.colorSensor.get("color");
         color.enableLed(false);
 
-        distance = hardwareMap.opticalDistanceSensor.get("distance");
+//        distance = hardwareMap.opticalDistanceSensor.get("distance");
 
         stop_all_motors();
     }
