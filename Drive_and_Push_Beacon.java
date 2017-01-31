@@ -28,7 +28,7 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
             "unknown", "red", "blue"
     };
 
-    //s
+
 
     int COLOR_TEAM = COLOR_BLUE;
 
