@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+
 
 /**
  * Created by Patti on 1/28/2017.
@@ -42,7 +42,7 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
     final private static int mBL = 2;
     final private static int mBR = 3;
     final private static String[] MOTOR_NAMES = {
-        "mFL", "mFR", "mBL", "mBR"
+            "left_drive", "right_drive"
     };
     final private static DcMotorSimple.Direction MOTOR_DIRECTIONS[] = {
         DcMotor.Direction.FORWARD, // mFL
@@ -59,13 +59,13 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
     final private static int STRAFE_RIGHT   = 5;
 
     final private static double DRIVE_DIRECTIONS[][] = {
-            //mFL,  mFR,   mBL,   mBR
-            {+1.00, +1.00, +1.00, +1.00}, // DRIVE_FORWARD
-            {-1.00, -1.00, -1.00, -1.00}, // DRIVE_BACKWARD
-            {+1.00, -1.00, +1.00, -1.00}, // TURN_LEFT
-            {-1.00, +1.00, -1.00, +1.00}, // TURN_RIGHT
-            {-1.00, +1.00, +1.00, -1.00}, // STRAFE_LEFT
-            {+1.00, -0.92, -0.92, +1.04}, // STRAFE_RIGHT
+            //L,  R
+            {+1.00, +1.00}, // DRIVE_FORWARD
+            {-1.00, -1.00}, // DRIVE_BACKWARD
+            {-1.00, +1.00}, // TURN_LEFT
+            {-1.00, +1.00}, // TURN_RIGHT
+            {-0.00, +1.00}, // STRAFE_LEFT
+            {+1.00, -0.00}, // STRAFE_RIGHT
     };
 
     private void stop_all_motors() {
