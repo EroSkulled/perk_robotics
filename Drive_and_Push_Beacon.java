@@ -20,7 +20,6 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
     final private static double WHEEL_DIAMETER = 3.937;  // Diameter of the wheel in inches
     final private static double WHEEL_CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER;
     final private static double STRAFE_SLIPPAGE_FACTOR = 1.08;
-
     final private static int COLOR_UNKNOWN = 0;
     final private static int COLOR_RED = 1;
     final private static int COLOR_BLUE = 2;
@@ -39,16 +38,13 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
     final private static int MOTOR_COUNT = 4;
     final private static int mFL = 0;
     final private static int mFR = 1;
-    final private static int mBL = 2;
-    final private static int mBR = 3;
+
     final private static String[] MOTOR_NAMES = {
             "left_drive", "right_drive"
     };
     final private static DcMotorSimple.Direction MOTOR_DIRECTIONS[] = {
         DcMotor.Direction.FORWARD, // mFL
         DcMotor.Direction.REVERSE, // mFR
-        DcMotor.Direction.FORWARD, // mBL
-        DcMotor.Direction.REVERSE, // mBR
     };
 
     final private static int DRIVE_FORWARD  = 0;
