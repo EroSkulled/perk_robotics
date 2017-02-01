@@ -15,18 +15,16 @@ import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 // set name to show on phone
 @Autonomous(name="Drive and Push Beacon", group="Autonomous")
 public class Drive_and_Push_Beacon extends LinearOpMode {
-    final private static int ENCODER_CPR = 60;  // Encoder Counters per Revolution
-    final private static double GEAR_RATIO = 5.0;   // Gear Ratio - 1:1 - Direct Drive
+    final private static int ENCODER_CPR = 1;  // Encoder Counters per Revolution
+    final private static double GEAR_RATIO = 1.0;   // Gear Ratio - 1:1 - Direct Drive
     final private static double WHEEL_CIRCUMFERENCE = 126; // in meters
-    final private static double STRAFE_SLIPPAGE_FACTOR = 1.08;
+    final private static double STRAFE_SLIPPAGE_FACTOR = 1.00;
 
 
     DcMotor motor[];
 
 
     final private static int MOTOR_COUNT = 2;
-    final private static int left_drive = 0;
-    final private static int right_drive = 1;
 
     final private static String[] MOTOR_NAMES = {
             "left_drive", "right_drive"
@@ -114,13 +112,6 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
         };
     }
 
-    private void drive_distance_start(int direction, double distance, double speed) {
-        double slippage = 1.0;
-        if(direction == STRAFE_LEFT || direction == STRAFE_RIGHT)
-            slippage = STRAFE_SLIPPAGE_FACTOR;
-        drive_to_position(direction, distance_to_count(distance, slippage), speed);
-    }
-
     private void drive_distance(int direction, double distance, double speed) {
         double slippage = 1.0;
         if(direction == STRAFE_LEFT || direction == STRAFE_RIGHT)
@@ -137,9 +128,6 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
             motor[i] = hardwareMap.dcMotor.get(MOTOR_NAMES[i]);
             motor[i].setDirection(MOTOR_DIRECTIONS[i]);
         }
-
-
-
         stop_all_motors();
     }
 
