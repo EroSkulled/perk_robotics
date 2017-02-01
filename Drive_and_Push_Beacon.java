@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 
 // set name to show on phone
-@Autonomous(name="TEST RUN", group="Autonomous")
+@Autonomous(name="TEST RUN 1", group="Autonomous")
 public class Drive_and_Push_Beacon extends LinearOpMode {
     final private static int ENCODER_CPR = 2;  // Encoder Counters per Revolution
     final private static double GEAR_RATIO = 1.0;   // Gear Ratio - 1:1 - Direct Drive
