@@ -15,7 +15,7 @@ import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 // set name to show on phone
 @Autonomous(name="TEST RUN", group="Autonomous")
 public class Drive_and_Push_Beacon extends LinearOpMode {
-    final private static int ENCODER_CPR = 1;  // Encoder Counters per Revolution
+    final private static int ENCODER_CPR = 2;  // Encoder Counters per Revolution
     final private static double GEAR_RATIO = 1.0;   // Gear Ratio - 1:1 - Direct Drive
     final private static double WHEEL_CIRCUMFERENCE = 1.26; // in meters
     final private static double STRAFE_SLIPPAGE_FACTOR = 1.00;
@@ -140,9 +140,9 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
             return;
 
         // Roughly align to the beacon before checking the color.
-        drive_distance(DRIVE_FORWARD, 12.0, 0.6);
-        drive_distance(DRIVE_BACKWARD, 12.0, 0.4);
-        stop_all_motors();
+        drive_distance(DRIVE_FORWARD, 10.0, 0.6);
+        drive_distance(DRIVE_BACKWARD, 10.0, 0.4);
+
 
 
     }
