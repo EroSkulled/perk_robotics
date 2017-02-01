@@ -1,4 +1,5 @@
 
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -11,7 +12,7 @@ import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 // set name to show on phone
 @Autonomous(name="TEST RUN 1", group="Autonomous")
 public class Drive_and_Push_Beacon extends LinearOpMode {
-    final private static int ENCODER_CPR = 2;  // Encoder Counters per Revolution
+    final private static int ENCODER_CPR = 1;  // Encoder Counters per Revolution
     final private static double GEAR_RATIO = 1.0;   // Gear Ratio - 1:1 - Direct Drive
     final private static double WHEEL_CIRCUMFERENCE = 1.26; // in meters
     final private static double STRAFE_SLIPPAGE_FACTOR = 1.00;
@@ -21,6 +22,8 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
 
 
     final private static int MOTOR_COUNT = 2;
+    final private static int left_drive = 0;
+    final private static int right_drive = 1;
 
     final private static String[] MOTOR_NAMES = {
             "left_drive", "right_drive"
@@ -43,8 +46,8 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
             {-1.00, -1.00}, // DRIVE_BACKWARD
             {-1.00, +1.00}, // TURN_LEFT
             {-1.00, +1.00}, // TURN_RIGHT
-            {-0.00, +1.00}, // STRAFE_LEFT
-            {+1.00, -0.00}, // STRAFE_RIGHT
+            {+0.00, +1.00}, // STRAFE_LEFT
+            {+1.00, +0.00}, // STRAFE_RIGHT
     };
 
     private void stop_all_motors() {
@@ -85,27 +88,26 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
 
     private void drive_to_position(int direction, int count, double speed) {
         try {
-            for(int i=0; i < MOTOR_COUNT; i++) {
+            for (int i = 0; i < MOTOR_COUNT; i++) {
                 motor[i].setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                motor[i].setTargetPosition((int)((double)count * DRIVE_DIRECTIONS[direction][i]));
+                motor[i].setTargetPosition((int) ((double) count * DRIVE_DIRECTIONS[direction][i]));
                 set_motor_power(i, direction, 0.25 * speed * DRIVE_DIRECTIONS[direction][i]);
             }
             telemetry.update();
 
             Thread.sleep(50);
-            for(int i=0; i < MOTOR_COUNT; i++) {
+            for (int i = 0; i < MOTOR_COUNT; i++)
                 set_motor_power(i, direction, 0.50 * speed * DRIVE_DIRECTIONS[direction][i]);
-            }
             telemetry.update();
 
             Thread.sleep(10);
-            for(int i=0; i < MOTOR_COUNT; i++) {
+            for (int i = 0; i < MOTOR_COUNT; i++)
                 set_motor_power(i, direction, 1.00 * speed * DRIVE_DIRECTIONS[direction][i]);
-            }
             telemetry.update();
 
-        } catch(InterruptedException e) {
-        };
+        } catch (InterruptedException e) {
+        }
+        ;
     }
 
     private void drive_distance(int direction, double distance, double speed) {
@@ -123,7 +125,6 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
         for(int i=0; i < MOTOR_COUNT; i++) {
             motor[i] = hardwareMap.dcMotor.get(MOTOR_NAMES[i]);
             motor[i].setDirection(MOTOR_DIRECTIONS[i]);
-
         }
         stop_all_motors();
     }
@@ -137,10 +138,10 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
             return;
 
         // Roughly align to the beacon before checking the color.
-        drive_distance(DRIVE_FORWARD, 5.0, 0.6);
-        drive_distance(DRIVE_BACKWARD, 5.0, 0.4);
-        hardwareMap.dcMotor.wait(1000);
-        stop_all_motors();
+        drive_distance(DRIVE_FORWARD, 10.0, 0.6);
+        drive_distance(DRIVE_BACKWARD, 10.0, 0.4);
+
+
 
     }
 }
