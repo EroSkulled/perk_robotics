@@ -1,8 +1,4 @@
 
-
-/**
- * Created by Patti on 1/28/2017.
- */
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -127,6 +123,7 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
         for(int i=0; i < MOTOR_COUNT; i++) {
             motor[i] = hardwareMap.dcMotor.get(MOTOR_NAMES[i]);
             motor[i].setDirection(MOTOR_DIRECTIONS[i]);
+
         }
         stop_all_motors();
     }
@@ -143,7 +140,11 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
         drive_distance(DRIVE_FORWARD, 10.0, 0.6);
         drive_distance(DRIVE_BACKWARD, 10.0, 0.4);
 
+        hardwareMap.dcMotor.wait(1000);
+        stop_all_motors();
 
+
+        hardwareMap.dcMotor.setpo
 
     }
 }
