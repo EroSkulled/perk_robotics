@@ -137,14 +137,10 @@ public class Drive_and_Push_Beacon extends LinearOpMode {
             return;
 
         // Roughly align to the beacon before checking the color.
-        drive_distance(DRIVE_FORWARD, 10.0, 0.6);
-        drive_distance(DRIVE_BACKWARD, 10.0, 0.4);
-
+        drive_distance(DRIVE_FORWARD, 5.0, 0.6);
+        drive_distance(DRIVE_BACKWARD, 5.0, 0.4);
         hardwareMap.dcMotor.wait(1000);
         stop_all_motors();
-
-
-        hardwareMap.dcMotor.setpo
 
     }
 }
